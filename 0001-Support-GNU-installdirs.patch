@@ -1,0 +1,26 @@
+From b0368fe143851757da51ffc2b0cdd8836b041f7e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
+Date: Wed, 6 Dec 2017 15:44:25 -0800
+Subject: [PATCH] Support GNU installdirs.
+
+---
+ debian/rules.em | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/debian/rules.em b/debian/rules.em
+index 9c9604d..92b48e1 100755
+--- a/debian/rules.em
++++ b/debian/rules.em
+@@ -50,7 +50,8 @@ override_dh_shlibdeps:
+ 	# in the install tree that was dropped by catkin, and source it.  It will
+ 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+ 	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
+-	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
++	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/:$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)/:@(InstallationPrefix)/lib/:@(InstallationPrefix)/lib/$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)/
++
+ 
+ override_dh_auto_install:
+ 	# In case we're installing to a non-standard location, look for a setup.sh
+-- 
+2.7.4
+
