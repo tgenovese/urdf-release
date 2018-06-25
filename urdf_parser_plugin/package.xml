@@ -1,6 +1,6 @@
 <package>
   <name>urdf_parser_plugin</name>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <description>
     This package contains a C++ base class for URDF parsers.
   </description>
@@ -12,9 +12,9 @@
 
   <license>BSD</license>
 
-  <url type="website">http://ros.org/wiki/urdf</url>
-  <url type="repository">https://github.com/ros/robot_model</url>
-  <url type="bugtracker">https://github.com/ros/robot_model/issues</url>
+  <!--url type="website">http://ros.org/wiki/urdf</url-->
+  <url type="repository">https://github.com/ros2/urdf</url>
+  <url type="bugtracker">https://github.com/ros2/urdf/issues</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>liburdfdom-headers-dev</build_depend>
