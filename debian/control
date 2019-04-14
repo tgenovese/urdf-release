@@ -1,0 +1,13 @@
+Source: ros-dashing-urdf
+Section: misc
+Priority: extra
+Maintainer: Chris Lalancette <clalancette@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libtinyxml-dev, ros-dashing-ament-cmake-ros, ros-dashing-ament-lint-auto, ros-dashing-ament-lint-common, ros-dashing-tinyxml-vendor, ros-dashing-urdfdom, ros-dashing-urdfdom-headers, ros-dashing-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-dashing-urdf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtinyxml-dev, ros-dashing-tinyxml-vendor, ros-dashing-urdfdom, ros-dashing-urdfdom-headers, ros-dashing-ros-workspace
+Description: This package contains a C++ parser for the Unified Robot Description Format (URDF), which is an XML format for representing a robot model.
+ The code API of the parser has been through our review process and will remain backwards compatible in future releases.
