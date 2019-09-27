@@ -1,3 +1,29 @@
+## urdf (eloquent) - 2.2.0-1
+
+The packages in the `urdf` repository were released into the `eloquent` distro by running `/home/jacob/.local/bin/bloom-release -r eloquent -t eloquent urdf` on `Fri, 27 Sep 2019 00:15:26 -0000`
+
+The `urdf` package was released.
+
+These packages were explicitly ignored:
+- `urdf_parser_plugin`
+
+Version of package(s) in repository `urdf`:
+
+- upstream repository: https://github.com/ros2/urdf.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.2.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.13`
+- rosdep version: `0.16.1`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.42`
+
+
 ## urdf (dashing) - 2.2.0-1
 
 The packages in the `urdf` repository were released into the `dashing` distro by running `/usr/bin/bloom-release -n -r dashing urdf --override-release-repository-push-url git@github.com:ros2-gbp/urdf-release` on `Sun, 14 Apr 2019 21:12:20 -0000`
