@@ -1,1 +1,1 @@
-{"trim": "", "base": "105bb60", "trimbase": "", "parent": "debian/foxy/urdf", "previous": "577aed3"}
+{"base": "74cda80", "parent": "debian/rolling/urdf", "previous": "c8afcda", "trim": "", "trimbase": ""}
