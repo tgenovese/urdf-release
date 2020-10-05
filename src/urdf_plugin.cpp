@@ -1,7 +1,7 @@
 /*********************************************************************
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2008, Willow Garage, Inc.
+*  Copyright (c) 2020, Open Source Robotics Foundation, Inc.
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -32,53 +32,50 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-/* Author: Wim Meeussen */
+#include <tinyxml2.h>
+#include <urdf_parser/urdf_parser.h>
+#include <urdf_parser_plugin/parser.h>
 
-#ifndef URDF__MODEL_H_
-#define URDF__MODEL_H_
-
-#include <memory>
 #include <string>
-
-#include "urdf_model/model.h"
-
-#include "urdf/urdfdom_compatibility.h"
-#include "urdf/visibility_control.hpp"
 
 namespace urdf
 {
-
-// PIMPL Forward Declaration
-class ModelImplementation;
-
-/// \brief Populates itself based on a robot descripton
-///
-/// This class uses `urdf_parser_plugin` to parse the given robot description.
-/// The chosen plugin is the one that reports the most confident score.
-/// There is no way to override this choice except by uninstalling undesirable
-/// parser plugins.
-class Model : public ModelInterface
+class URDFXMLParser final : public urdf::URDFParser
 {
 public:
-  URDF_EXPORT
-  Model();
+  URDFXMLParser() = default;
 
-  URDF_EXPORT
-  ~Model();
+  ~URDFXMLParser() = default;
 
-  /// \brief Load Model given a filename
-  URDF_EXPORT bool initFile(const std::string & filename);
+  urdf::ModelInterfaceSharedPtr parse(const std::string & xml_string) override;
 
-  /// \brief Load Model from a XML-string
-  URDF_EXPORT bool initString(const std::string & xmlstring);
-
-private:
-  std::unique_ptr<ModelImplementation> impl_;
+  size_t might_handle(const std::string & data) override;
 };
 
-// shared_ptr declarations moved to urdf/urdfdom_compatibility.h to allow for
-// std::shared_ptrs in latest version
+urdf::ModelInterfaceSharedPtr URDFXMLParser::parse(const std::string & xml_string)
+{
+  return urdf::parseURDF(xml_string);
+}
 
+size_t URDFXMLParser::might_handle(const std::string & data)
+{
+  tinyxml2::XMLDocument doc;
+  const tinyxml2::XMLError error = doc.Parse(data.c_str());
+  if (error == tinyxml2::XML_SUCCESS) {
+    // Since it's an XML document it must have `<robot>` as the first tag
+    const tinyxml2::XMLElement * root = doc.RootElement();
+    if (std::string("robot") != root->Name()) {
+      return data.size();
+    }
+  }
+
+  // Possiblities:
+  //  1) It is not an XML based robot description
+  //  2) It is an XML based robot description, but there's an XML syntax error
+  //  3) It is a URDF XML with correct XML syntax
+  return data.find("<robot");
+}
 }  // namespace urdf
 
-#endif  // URDF__MODEL_H_
+#include <pluginlib/class_list_macros.hpp>  // NOLINT
+PLUGINLIB_EXPORT_CLASS(urdf::URDFXMLParser, urdf::URDFParser)
