@@ -1,7 +1,7 @@
 /*********************************************************************
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2008, Willow Garage, Inc.
+*  Copyright (c) 2020, Willow Garage, Inc.
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -32,53 +32,56 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-/* Author: Wim Meeussen */
+#include <benchmark/benchmark.h>
+#include <urdf_parser/urdf_parser.h>
 
-#ifndef URDF__MODEL_H_
-#define URDF__MODEL_H_
-
-#include <memory>
 #include <string>
 
-#include "urdf_model/model.h"
+#include "urdf/model.h"
 
-#include "urdf/urdfdom_compatibility.h"
-#include "urdf/visibility_control.hpp"
+const char test_xml[] =
+  "<?xml verison=\"1.0\"?>"
+  "<robot name=\"benchy_bot\">"
+  "  <link name=\"link1\">"
+  "    <inertial>"
+  "      <mass value=\"1\"/>"
+  "      <inertia ixx=\"1\" iyy=\"1\" izz=\"1\" ixy=\"0\" ixz=\"0\" iyz=\"0\"/>"
+  "    </inertial>"
+  "    <visual>"
+  "      <geometry>"
+  "        <box size=\"1 1 1\"/>"
+  "      </geometry>"
+  "    </visual>"
+  "    <collision>"
+  "      <geometry>"
+  "        <box size=\"1 1 1\"/>"
+  "      </geometry>"
+  "    </collision>"
+  "  </link>"
+  "</robot>";
 
-namespace urdf
+static void BM_no_plugin(benchmark::State & state)
 {
+  for (auto _ : state) {
+    if (nullptr == urdf::parseURDF(test_xml)) {
+      state.SkipWithError("Failed to read xml");
+      break;
+    }
+  }
+}
 
-// PIMPL Forward Declaration
-class ModelImplementation;
-
-/// \brief Populates itself based on a robot descripton
-///
-/// This class uses `urdf_parser_plugin` to parse the given robot description.
-/// The chosen plugin is the one that reports the most confident score.
-/// There is no way to override this choice except by uninstalling undesirable
-/// parser plugins.
-class Model : public ModelInterface
+static void BM_with_plugin(benchmark::State & state)
 {
-public:
-  URDF_EXPORT
-  Model();
+  for (auto _ : state) {
+    urdf::Model m;
+    if (!m.initString(test_xml)) {
+      state.SkipWithError("Failed to read xml");
+      break;
+    }
+  }
+}
 
-  URDF_EXPORT
-  ~Model();
+BENCHMARK(BM_no_plugin);
+BENCHMARK(BM_with_plugin);
 
-  /// \brief Load Model given a filename
-  URDF_EXPORT bool initFile(const std::string & filename);
-
-  /// \brief Load Model from a XML-string
-  URDF_EXPORT bool initString(const std::string & xmlstring);
-
-private:
-  std::unique_ptr<ModelImplementation> impl_;
-};
-
-// shared_ptr declarations moved to urdf/urdfdom_compatibility.h to allow for
-// std::shared_ptrs in latest version
-
-}  // namespace urdf
-
-#endif  // URDF__MODEL_H_
+BENCHMARK_MAIN();
