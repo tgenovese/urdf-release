@@ -2,6 +2,9 @@
 Changelog for package urdf_parser_plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.5.1 (2020-12-10)
+------------------
+
 2.5.0 (2020-10-05)
 ------------------
 * Make urdf plugable and revive urdf_parser_plugin (`#13 <https://github.com/ros2/urdf/issues/13>`_)
