@@ -1,24 +1,23 @@
-From c8afcda61526e3567944b0e24a95bbf642546284 Mon Sep 17 00:00:00 2001
+From 4a721786351f55c2c36e3b7ad200aea5e3a27e94 Mon Sep 17 00:00:00 2001
 From: Jacob Perron <jacob@openrobotics.org>
 Date: Wed, 6 May 2020 11:02:39 -0700
 Subject: [PATCH] Support GNUInstallDirs
 
 Signed-off-by: Jacob Perron <jacob@openrobotics.org>
 ---
- debian/rules.em | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ debian/rules.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 9c9604d..92b48e1 100755
+index 5a04067..81858a8 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
-@@ -50,7 +50,8 @@ override_dh_shlibdeps:
- 	# in the install tree that was dropped by catkin, and source it.  It will
- 	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
+@@ -51,7 +51,7 @@ override_dh_shlibdeps:
+ 	# in the install tree and source it.  It will set things like
+ 	# CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
  	if [ -f "@(InstallationPrefix)/setup.sh" ]; then . "@(InstallationPrefix)/setup.sh"; fi && \
 -	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/
 +	dh_shlibdeps -l$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/:$(CURDIR)/debian/@(Package)/@(InstallationPrefix)/lib/$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)/:@(InstallationPrefix)/lib/:@(InstallationPrefix)/lib/$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)/
-+
  
  override_dh_auto_install:
  	# In case we're installing to a non-standard location, look for a setup.sh
