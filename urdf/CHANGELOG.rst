@@ -2,6 +2,9 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.5.2 (2021-05-12)
+------------------
+
 2.5.1 (2020-12-10)
 ------------------
 * Work around Windows min/max bug. (`#21 <https://github.com/ros2/urdf/issues/21>`_)
