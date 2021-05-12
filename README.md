@@ -1,3 +1,28 @@
+## urdf (galactic) - 2.5.2-1
+
+The packages in the `urdf` repository were released into the `galactic` distro by running `/usr/bin/bloom-release --track galactic --rosdistro galactic urdf` on `Wed, 12 May 2021 13:26:07 -0000`
+
+These packages were released:
+- `urdf`
+- `urdf_parser_plugin`
+
+Version of package(s) in repository `urdf`:
+
+- upstream repository: https://github.com/ros2/urdf.git
+- release repository: https://github.com/ros2-gbp/urdf-release.git
+- rosdistro version: `2.5.1-2`
+- old version: `2.5.1-2`
+- new version: `2.5.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## urdf (rolling) - 2.5.2-1
 
 The packages in the `urdf` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling urdf` on `Wed, 12 May 2021 13:09:41 -0000`
