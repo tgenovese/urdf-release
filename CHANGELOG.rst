@@ -2,6 +2,11 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.8.2 (2023-02-13)
+------------------
+* [rolling] Update maintainers - 2022-11-07 (`#35 <https://github.com/ros2/urdf/issues/35>`_)
+* Contributors: Audrow Nash
+
 2.8.1 (2022-11-02)
 ------------------
 * [urdf] package.xml: add missing exec_depend to urdf_parser_plugin (`#34 <https://github.com/ros2/urdf/issues/34>`_)
