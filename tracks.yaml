@@ -223,4 +223,5 @@ tracks:
     ros_distro: rolling
     vcs_type: git
     vcs_uri: https://github.com/ros2/urdf.git
-    version: :{auto}
+    version: 2.8.2
+    version_saved: :{auto}
