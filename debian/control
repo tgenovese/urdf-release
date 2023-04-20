@@ -1,0 +1,13 @@
+Source: ros-iron-urdf
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernandez Cordero <alejandro@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-iron-ament-cmake-google-benchmark <!nocheck>, ros-iron-ament-cmake-ros, ros-iron-ament-lint-auto <!nocheck>, ros-iron-ament-lint-common <!nocheck>, ros-iron-pluginlib, ros-iron-tinyxml2-vendor, ros-iron-urdf-parser-plugin, ros-iron-urdfdom, ros-iron-urdfdom-headers, ros-iron-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-iron-urdf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-iron-pluginlib, ros-iron-tinyxml2-vendor, ros-iron-urdf-parser-plugin, ros-iron-urdfdom, ros-iron-urdfdom-headers, ros-iron-ros-workspace
+Description: This package contains a C++ parser for the Unified Robot Description Format (URDF), which is an XML format for representing a robot model.
+ The code API of the parser has been through our review process and will remain backwards compatible in future releases.
