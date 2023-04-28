@@ -2,6 +2,9 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.9.0 (2023-04-28)
+------------------
+
 2.8.2 (2023-02-13)
 ------------------
 * [rolling] Update maintainers - 2022-11-07 (`#35 <https://github.com/ros2/urdf/issues/35>`_)
