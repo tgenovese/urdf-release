@@ -2,6 +2,11 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.10.0 (2023-12-26)
+-------------------
+* Switch to target_link_libraries (`#36 <https://github.com/ros2/urdf/issues/36>`_)
+* Contributors: Chris Lalancette
+
 2.9.0 (2023-04-28)
 ------------------
 
