@@ -1,0 +1,203 @@
+ros-humble-urdf-parser-plugin (2.6.1-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 21 Aug 2024 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.6.0-1jammy) jammy; urgency=high
+
+  * Install headers to include/${PROJECT_NAME} (#31 <https://github.com/ros2/urdf/issues/31>)
+  * Contributors: Shane Loretz
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Mon, 28 Feb 2022 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.5.3-1jammy) jammy; urgency=high
+
+  * Add linter tests and fix errors (#30 <https://github.com/ros2/urdf/issues/30>)
+  * Contributors: Jacob Perron
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 12 Jan 2022 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.5.2-1jammy) jammy; urgency=high
+
+  * Export urdfdom_headers as urdf_parser_plugin dependency. (#25 <https://github.com/ros2/urdf/issues/25>)
+  * Contributors: Michel Hidalgo
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 11 May 2021 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.5.1-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 09 Dec 2020 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.5.0-1jammy) jammy; urgency=high
+
+  * Make urdf plugable and revive urdf_parser_plugin (#13 <https://github.com/ros2/urdf/issues/13>)
+  * Contributors: Shane Loretz
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sun, 04 Oct 2020 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.1.0-1jammy) jammy; urgency=high
+
+  * Update project URLs (#2 <https://github.com/ros2/urdf/issues/2>)
+  * Contributors: Mikael Arguedas
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sun, 24 Jun 2018 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (2.0.0-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Thu, 07 Dec 2017 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.12-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 07 Nov 2017 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.11-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Mon, 26 Jun 2017 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.10-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Fri, 23 Jun 2017 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.9-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 25 Apr 2017 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.8-1jammy) jammy; urgency=high
+
+  * add Chris and Shane as maintainers (#184 <https://github.com/ros/robot_model/issues/184>)
+  * Contributors: William Woodall
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sun, 26 Mar 2017 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.7-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 25 Jan 2017 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.6-1jammy) jammy; urgency=high
+
+  * Now using ``urdf::*ShredPtr`` instead of ``boost::shared_ptr`` (#144 <https://github.com/ros/robot_model/issues/144>)
+  * Contributors: Jochen Sprickerhof
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 03 Jan 2017 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.5-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 26 Oct 2016 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.4-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Mon, 22 Aug 2016 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.3-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Thu, 09 Jun 2016 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.2-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Mon, 11 Apr 2016 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.12.1-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sat, 09 Apr 2016 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.8-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Thu, 10 Sep 2015 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.7-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 21 Apr 2015 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.6-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sat, 29 Nov 2014 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.5-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 23 Jul 2014 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.4-1jammy) jammy; urgency=high
+
+  * moving to new dependency for urdfdom and urdfdom_headers. https://github.com/ros/rosdistro/issues/4633
+  * Contributors: Tully Foote
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sun, 06 Jul 2014 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.3-1jammy) jammy; urgency=high
+
+  * update usage of urdfdom_headers for indigo/trusty
+  * Contributors: William Woodall
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Mon, 23 Jun 2014 22:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.2-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Fri, 21 Mar 2014 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.1-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Wed, 19 Mar 2014 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.11.0-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Thu, 20 Feb 2014 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.10.18-1jammy) jammy; urgency=high
+
+  * add DEPENDS for kdl_parser
+  * Contributors: Ioan Sucan
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Tue, 03 Dec 2013 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.10.16-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Sun, 17 Nov 2013 23:00:00 -0000
+
+ros-humble-urdf-parser-plugin (1.10.15-1jammy) jammy; urgency=high
+
+
+
+ -- Chris Lalancette <clalancette@osrfoundation.org>  Fri, 16 Aug 2013 22:00:00 -0000
+
+
