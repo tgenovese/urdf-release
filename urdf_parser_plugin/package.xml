@@ -1,16 +1,14 @@
 <package format="2">
   <name>urdf_parser_plugin</name>
-  <version>2.11.0</version>
+  <version>2.6.1</version>
   <description>
     This package contains a C++ base class for URDF parsers.
   </description>
 
   <author email="isucan@gmail.com">Ioan Sucan</author>
   <author email="jacquelinekay1@gmail.com">Jackie Kay</author>
-  <author email="sloretz@osrfoundation.org">Shane Loretz</author>
-
-  <maintainer email="alejandro@openrobotics.org">Alejandro Hernandez Cordero</maintainer>
-  <maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+  <maintainer email="clalancette@osrfoundation.org">Chris Lalancette</maintainer>
+  <maintainer email="sloretz@osrfoundation.org">Shane Loretz</maintainer>
 
   <license>BSD</license>
 

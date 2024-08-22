@@ -21,10 +21,9 @@ set(generated_compat_header "${generated_install_path}/${PROJECT_NAME}/urdfdom_c
 include_directories(${generated_install_path})
 configure_file(urdfdom_compatibility.h.in "${generated_compat_header}" @ONLY)
 
-# Default to C++17
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -38,13 +37,14 @@ target_include_directories(${PROJECT_NAME}
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
 )
-target_link_libraries(${PROJECT_NAME} PUBLIC
-  urdfdom::urdfdom_model
+ament_target_dependencies(${PROJECT_NAME}
+  urdf_parser_plugin
+  urdfdom
+  urdfdom_headers
+  pluginlib
 )
-target_link_libraries(${PROJECT_NAME} PRIVATE
-  urdf_parser_plugin::urdf_parser_plugin
-  urdfdom_headers::urdfdom_headers
-  pluginlib::pluginlib
+target_link_libraries(${PROJECT_NAME}
+  urdfdom::urdfdom_model
 )
 
 if(WIN32)
@@ -58,11 +58,13 @@ endif()
 add_library(urdf_xml_parser SHARED
   src/urdf_plugin.cpp
 )
-target_link_libraries(urdf_xml_parser PRIVATE
+target_link_libraries(urdf_xml_parser
   ${PROJECT_NAME}
-  pluginlib::pluginlib
-  tinyxml2::tinyxml2
-  urdf_parser_plugin::urdf_parser_plugin
+)
+ament_target_dependencies(urdf_xml_parser
+  "pluginlib"
+  "TinyXML2"
+  "urdf_parser_plugin"
 )
 
 install(TARGETS urdf_xml_parser

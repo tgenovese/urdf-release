@@ -2,29 +2,7 @@
 Changelog for package urdf_parser_plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.11.0 (2024-04-29)
--------------------
-
-2.10.0 (2023-12-26)
--------------------
-* Switch to target_link_libraries (`#36 <https://github.com/ros2/urdf/issues/36>`_)
-* Contributors: Chris Lalancette
-
-2.9.0 (2023-04-28)
-------------------
-
-2.8.2 (2023-02-13)
-------------------
-* [rolling] Update maintainers - 2022-11-07 (`#35 <https://github.com/ros2/urdf/issues/35>`_)
-* Contributors: Audrow Nash
-
-2.8.1 (2022-11-02)
-------------------
-
-2.8.0 (2022-09-13)
-------------------
-
-2.7.0 (2022-05-04)
+2.6.1 (2024-08-22)
 ------------------
 
 2.6.0 (2022-03-01)
