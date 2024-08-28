@@ -2,20 +2,41 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.6.1 (2024-08-22)
+2.12.0 (2024-08-28)
+-------------------
+* Added commom linters (`#39 <https://github.com/ros2/urdf/issues/39>`_)
+* Use rcutils to log (`#37 <https://github.com/ros2/urdf/issues/37>`_)
+* Enable test_robot_model_parser test (`#38 <https://github.com/ros2/urdf/issues/38>`_)
+* Contributors: Alejandro Hernández Cordero
+
+2.11.0 (2024-04-29)
+-------------------
+
+2.10.0 (2023-12-26)
+-------------------
+* Switch to target_link_libraries (`#36 <https://github.com/ros2/urdf/issues/36>`_)
+* Contributors: Chris Lalancette
+
+2.9.0 (2023-04-28)
 ------------------
-* Provide copy and move constructors for `model` (`#33 <https://github.com/ros2/urdf/issues/33>`_) (`#41 <https://github.com/ros2/urdf/issues/41>`_)
-  In 4b73ae2998bec0db24aca07b0bf7fc37b8e4dae7 the copy and move
-  constructors were accidentally disabled.
-  This means that one must always wrap a `urdf::Model` into some form of
-  pointer in order to pass it around or have it as a member.
-  This commit restores the copy and move constructors, such that one is
-  able to pass the `urdf::Model` around as a normal variable.
-  See also:
-  https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rc-five
-  Co-authored-by: Daniel Reuter <daniel.robin.reuter@googlemail.com>
-  Co-authored-by: Shane Loretz <sloretz@osrfoundation.org>
-* Contributors: Kenji Brameld (TRACLabs)
+
+2.8.2 (2023-02-13)
+------------------
+* [rolling] Update maintainers - 2022-11-07 (`#35 <https://github.com/ros2/urdf/issues/35>`_)
+* Contributors: Audrow Nash
+
+2.8.1 (2022-11-02)
+------------------
+* [urdf] package.xml: add missing exec_depend to urdf_parser_plugin (`#34 <https://github.com/ros2/urdf/issues/34>`_)
+* Contributors: Tobias Neumann
+
+2.8.0 (2022-09-13)
+------------------
+* Provide copy and move constructors for `model` (`#33 <https://github.com/ros2/urdf/issues/33>`_)
+* Contributors: Daniel Reuter
+
+2.7.0 (2022-05-04)
+------------------
 
 2.6.0 (2022-03-01)
 ------------------
@@ -24,7 +45,7 @@ Changelog for package urdf
 
 2.5.3 (2022-01-13)
 ------------------
-* Add linter tests and fix errors (`#30 <https://github.com/ros2/urdf/issues/30>`_)
+* Add linter tests and fix errors (`#30 <https://github.com/ros2/urdf/issues/30>`__)
 * Add in a Doxyfile to predefine macros. (`#28 <https://github.com/ros2/urdf/issues/28>`_)
 * Contributors: Chris Lalancette, Jacob Perron
 
@@ -194,4 +215,4 @@ Changelog for package urdf
 
 1.10.15 (2013-08-17)
 --------------------
-* fix `#30 <https://github.com/ros/robot_model/issues/30>`_
+* fix `#30 <https://github.com/ros/robot_model/issues/30>`__

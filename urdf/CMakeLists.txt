@@ -3,6 +3,7 @@ project(urdf)
 
 find_package(ament_cmake_ros REQUIRED)
 find_package(pluginlib REQUIRED)
+find_package(rcutils REQUIRED)
 find_package(urdf_parser_plugin REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
@@ -21,9 +22,10 @@ set(generated_compat_header "${generated_install_path}/${PROJECT_NAME}/urdfdom_c
 include_directories(${generated_install_path})
 configure_file(urdfdom_compatibility.h.in "${generated_compat_header}" @ONLY)
 
-# Default to C++14
+# Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -37,14 +39,14 @@ target_include_directories(${PROJECT_NAME}
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
   "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
 )
-ament_target_dependencies(${PROJECT_NAME}
-  urdf_parser_plugin
-  urdfdom
-  urdfdom_headers
-  pluginlib
-)
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(${PROJECT_NAME} PUBLIC
   urdfdom::urdfdom_model
+)
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  urdf_parser_plugin::urdf_parser_plugin
+  urdfdom_headers::urdfdom_headers
+  pluginlib::pluginlib
+  rcutils::rcutils
 )
 
 if(WIN32)
@@ -58,13 +60,11 @@ endif()
 add_library(urdf_xml_parser SHARED
   src/urdf_plugin.cpp
 )
-target_link_libraries(urdf_xml_parser
+target_link_libraries(urdf_xml_parser PRIVATE
   ${PROJECT_NAME}
-)
-ament_target_dependencies(urdf_xml_parser
-  "pluginlib"
-  "TinyXML2"
-  "urdf_parser_plugin"
+  pluginlib::pluginlib
+  tinyxml2::tinyxml2
+  urdf_parser_plugin::urdf_parser_plugin
 )
 
 install(TARGETS urdf_xml_parser
@@ -81,18 +81,9 @@ install(DIRECTORY include/
   DESTINATION include/${PROJECT_NAME})
 
 if(BUILD_TESTING)
-  find_package(ament_cmake_cppcheck REQUIRED)
-  find_package(ament_cmake_cpplint REQUIRED)
-  find_package(ament_cmake_google_benchmark REQUIRED)
-  find_package(ament_cmake_lint_cmake REQUIRED)
-  find_package(ament_cmake_uncrustify REQUIRED)
-  # This forces cppcheck to consider all files in this project to be C++,
-  # including the headers which end with .h, which cppcheck would normally
-  # consider to be C instead.
-  ament_cppcheck(LANGUAGE "c++")
-  ament_cpplint()
-  ament_lint_cmake()
-  ament_uncrustify(LANGUAGE "C++")
+  find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_cppcheck_LANGUAGE "c++")
+  ament_lint_auto_find_test_dependencies()
 
   pluginlib_enable_plugin_testing(
     CMAKE_TARGET_VAR mock_install_target
@@ -110,6 +101,15 @@ if(BUILD_TESTING)
     urdf
   )
   add_dependencies(plugin_overhead "${mock_install_target}")
+
+  add_definitions(-D_TEST_RESOURCES_DIR_PATH="${CMAKE_CURRENT_SOURCE_DIR}/test/")
+
+  ament_add_gtest(test_robot_model_parser
+    test/test_robot_model_parser.cpp
+  )
+  if(TARGET test_robot_model_parser)
+    target_link_libraries(test_robot_model_parser ${PROJECT_NAME} rcutils::rcutils)
+  endif()
 endif()
 
 # Export old-style CMake variables
@@ -119,7 +119,6 @@ ament_export_libraries(${PROJECT_NAME})
 # Export modern CMake targets
 ament_export_targets(${PROJECT_NAME})
 
-ament_export_dependencies(pluginlib)
 ament_export_dependencies(urdf_parser_plugin)
 ament_export_dependencies(urdfdom)
 ament_export_dependencies(urdfdom_headers)
