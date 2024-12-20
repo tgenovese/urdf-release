@@ -2,6 +2,11 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+2.12.2 (2024-12-20)
+-------------------
+* make linters happy (`#45 <https://github.com/ros2/urdf/issues/45>`_)
+* Contributors: Alejandro Hernández Cordero
+
 2.12.1 (2024-12-13)
 -------------------
 * Added documentation with rosdoc2 (`#40 <https://github.com/ros2/urdf/issues/40>`_)
