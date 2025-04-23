@@ -1,0 +1,12 @@
+Source: ros-kilted-urdf-parser-plugin
+Section: misc
+Priority: optional
+Maintainer: Alejandro Hernandez Cordero <alejandro@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kilted-ament-cmake-ros, ros-kilted-ament-lint-auto <!nocheck>, ros-kilted-ament-lint-common <!nocheck>, ros-kilted-urdfdom-headers, ros-kilted-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kilted-urdf-parser-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kilted-urdfdom-headers, ros-kilted-ros-workspace
+Description: This package contains a C++ base class for URDF parsers.
