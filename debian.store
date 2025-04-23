@@ -1,1 +1,1 @@
-{"base": "8605b7c", "parent": "debian/rolling/urdf_parser_plugin", "previous": "e8855f7", "trim": "", "trimbase": ""}
+{"base": "60f720733f26", "parent": "debian/kilted/urdf_parser_plugin", "previous": "32162f770e1f", "trim": "", "trimbase": ""}
