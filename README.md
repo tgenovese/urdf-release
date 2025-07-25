@@ -1,3 +1,28 @@
+## urdf (jazzy) - 2.10.0-4
+
+The packages in the `urdf` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --rosdistro jazzy --override-release-repository-push-url git@github.com:tgenovese/urdf-release.git urdf` on `Fri, 25 Jul 2025 19:44:42 -0000`
+
+These packages were released:
+- `urdf`
+- `urdf_parser_plugin`
+
+Version of package(s) in repository `urdf`:
+
+- upstream repository: https://github.com/ros2/urdf.git
+- release repository: https://github.com/tgenovese/urdf-release.git
+- rosdistro version: `2.10.0-3`
+- old version: `2.10.0-3`
+- new version: `2.10.0-4`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## urdf (rolling) - 2.13.0-2
 
 The packages in the `urdf` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --rosdistro rolling --track rolling urdf` on `Mon, 23 Jun 2025 14:34:01 -0000`
