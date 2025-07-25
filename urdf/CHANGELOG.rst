@@ -2,29 +2,6 @@
 Changelog for package urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.13.0 (2025-04-25)
--------------------
-
-2.12.2 (2024-12-20)
--------------------
-* make linters happy (`#45 <https://github.com/ros2/urdf/issues/45>`_)
-* Contributors: Alejandro Hernández Cordero
-
-2.12.1 (2024-12-13)
--------------------
-* Added documentation with rosdoc2 (`#40 <https://github.com/ros2/urdf/issues/40>`_)
-* Contributors: Alejandro Hernández Cordero
-
-2.12.0 (2024-08-28)
--------------------
-* Added commom linters (`#39 <https://github.com/ros2/urdf/issues/39>`_)
-* Use rcutils to log (`#37 <https://github.com/ros2/urdf/issues/37>`_)
-* Enable test_robot_model_parser test (`#38 <https://github.com/ros2/urdf/issues/38>`_)
-* Contributors: Alejandro Hernández Cordero
-
-2.11.0 (2024-04-29)
--------------------
-
 2.10.0 (2023-12-26)
 -------------------
 * Switch to target_link_libraries (`#36 <https://github.com/ros2/urdf/issues/36>`_)

@@ -3,7 +3,6 @@ project(urdf)
 
 find_package(ament_cmake_ros REQUIRED)
 find_package(pluginlib REQUIRED)
-find_package(rcutils REQUIRED)
 find_package(urdf_parser_plugin REQUIRED)
 find_package(urdfdom REQUIRED)
 find_package(urdfdom_headers REQUIRED)
@@ -46,7 +45,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
   urdf_parser_plugin::urdf_parser_plugin
   urdfdom_headers::urdfdom_headers
   pluginlib::pluginlib
-  rcutils::rcutils
 )
 
 if(WIN32)
@@ -81,9 +79,18 @@ install(DIRECTORY include/
   DESTINATION include/${PROJECT_NAME})
 
 if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  set(ament_cmake_cppcheck_LANGUAGE "c++")
-  ament_lint_auto_find_test_dependencies()
+  find_package(ament_cmake_cppcheck REQUIRED)
+  find_package(ament_cmake_cpplint REQUIRED)
+  find_package(ament_cmake_google_benchmark REQUIRED)
+  find_package(ament_cmake_lint_cmake REQUIRED)
+  find_package(ament_cmake_uncrustify REQUIRED)
+  # This forces cppcheck to consider all files in this project to be C++,
+  # including the headers which end with .h, which cppcheck would normally
+  # consider to be C instead.
+  ament_cppcheck(LANGUAGE "c++")
+  ament_cpplint()
+  ament_lint_cmake()
+  ament_uncrustify(LANGUAGE "C++")
 
   pluginlib_enable_plugin_testing(
     CMAKE_TARGET_VAR mock_install_target
@@ -101,15 +108,6 @@ if(BUILD_TESTING)
     urdf
   )
   add_dependencies(plugin_overhead "${mock_install_target}")
-
-  add_definitions(-D_TEST_RESOURCES_DIR_PATH="${CMAKE_CURRENT_SOURCE_DIR}/test/")
-
-  ament_add_gtest(test_robot_model_parser
-    test/test_robot_model_parser.cpp
-  )
-  if(TARGET test_robot_model_parser)
-    target_link_libraries(test_robot_model_parser ${PROJECT_NAME} rcutils::rcutils)
-  endif()
 endif()
 
 # Export old-style CMake variables
@@ -119,6 +117,7 @@ ament_export_libraries(${PROJECT_NAME})
 # Export modern CMake targets
 ament_export_targets(${PROJECT_NAME})
 
+ament_export_dependencies(pluginlib)
 ament_export_dependencies(urdf_parser_plugin)
 ament_export_dependencies(urdfdom)
 ament_export_dependencies(urdfdom_headers)
